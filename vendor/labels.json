@@ -1,0 +1,758 @@
+{
+  "ht": {
+    "to_string": "HorizontalTab"
+  },
+  "lf": {
+    "to_string": "LineFeed"
+  },
+  "ff_in_page": {
+    "to_string": "EndPrint"
+  },
+  "ff_in_standard": {
+    "to_string": "EndJob"
+  },
+  "cr": {
+    "to_string": "CarriageReturn"
+  },
+  "dle_eot": {
+    "to_string": "TransmitRealTimeStatus"
+  },
+  "dle_enq": {
+    "to_string": "SendRealTimeRequestToPrinter"
+  },
+  "dle_dc4_fn1": {
+    "to_string": "GeneratePulseInRealTime"
+  },
+  "dle_dc4_fn2": {
+    "to_string": "ExecutePowerOffSequence"
+  },
+  "dle_dc4_fn3": {
+    "to_string": "SoundBuzzerInRealTime"
+  },
+  "dle_dc4_fn7": {
+    "to_string": "TransmitSpecifiedStatusInRealTime"
+  },
+  "dle_dc4_fn8": {
+    "to_string": "ClearBuffer"
+  },
+  "can": {
+    "to_string": "CancelPrintDataInPageMode"
+  },
+  "esc_ff": {
+    "to_string": "PrintDataInPageMode"
+  },
+  "esc_space": {
+    "to_string": "SetRightSideCharacterSpacing"
+  },
+  "esc_exclamation": {
+    "to_string": "SelectPrintMode"
+  },
+  "esc_dollarssign": {
+    "to_string": "SetAbsolutePrintPosition"
+  },
+  "esc_percent": {
+    "to_string": "SelectCancelUserDefinedCharacterSet"
+  },
+  "esc_ampersand": {
+    "to_string": "DefineUserDefinedCharacters"
+  },
+  "esc_lparen_ca": {
+    "to_string": "ControlBeeperTones"
+  },
+  "esc_lparen_ca_fn48": {
+    "to_string": "BeepTheBuzzer"
+  },
+  "esc_lparen_ca_fn97": {
+    "to_string": "ModelSpecificBuzzerControl"
+  },
+  "esc_lparen_ca_fn98": {
+    "to_string": "ModelSpecificBuzzerControlFn98"
+  },
+  "esc_lparen_ca_fn99": {
+    "to_string": "ModelSpecificBuzzerControlFn99"
+  },
+  "esc_lparen_cy": {
+    "to_string": "SpecifyBatchPrint"
+  },
+  "esc_asterisk": {
+    "to_string": "SelectBitImageMode"
+  },
+  "esc_minus": {
+    "to_string": "TurnUnderlineModeOnOff"
+  },
+  "esc_2": {
+    "to_string": "SelectDefaultLineSpacing"
+  },
+  "esc_3": {
+    "to_string": "SetLineSpacing"
+  },
+  "esc_less_than_sign": {
+    "to_string": "ReturnHome"
+  },
+  "esc_equal": {
+    "to_string": "SelectPeripheralDevice"
+  },
+  "esc_questionmark": {
+    "to_string": "CancelUserDefinedCharacters"
+  },
+  "esc_atsign": {
+    "to_string": "InitializePrinter"
+  },
+  "esc_cd": {
+    "to_string": "SetHorizontalTabPositions"
+  },
+  "esc_ce": {
+    "to_string": "TurnEmphasizedModeOnOff"
+  },
+  "esc_cg": {
+    "to_string": "TurnDoubleStrikeModeOnOff"
+  },
+  "esc_cj": {
+    "to_string": "PrintAndFeedPaper"
+  },
+  "esc_ck": {
+    "to_string": "PrintAndReverseFeed"
+  },
+  "esc_cl": {
+    "to_string": "SelectPageMode"
+  },
+  "esc_cm": {
+    "to_string": "SelectCharacterFont"
+  },
+  "esc_cr": {
+    "to_string": "SelectAnInternationalCharacterSet"
+  },
+  "esc_cs": {
+    "to_string": "SelectStandardMode"
+  },
+  "esc_ct": {
+    "to_string": "SelectPrintDirectionInPageMode"
+  },
+  "esc_cu": {
+    "to_string": "TurnUnidirectionalPrintModeOnOff"
+  },
+  "esc_cv": {
+    "to_string": "Turn90ClockwiseRotationModeOnOff"
+  },
+  "esc_cw": {
+    "to_string": "SetPrintAreaInPageMode"
+  },
+  "esc_backslash": {
+    "to_string": "SetRelativePrintPosition"
+  },
+  "esc_la": {
+    "to_string": "SelectJustification"
+  },
+  "esc_lc_3": {
+    "to_string": "SelectPaperSensorToOutputPaperEndSignals"
+  },
+  "esc_lc_4": {
+    "to_string": "SelectPaperSensorToStopPrinting"
+  },
+  "esc_lc_5": {
+    "to_string": "EnableDisablePanelButtons"
+  },
+  "esc_ld": {
+    "to_string": "PrintAndFeedNLines"
+  },
+  "esc_le": {
+    "to_string": "PrintAndReverseFeedNLines"
+  },
+  "esc_li": {
+    "to_string": "PartialCut"
+  },
+  "esc_lm": {
+    "to_string": "PartialCutEsc_lm"
+  },
+  "esc_lp": {
+    "to_string": "GeneratePulse"
+  },
+  "esc_lr": {
+    "to_string": "SelectPrintColor"
+  },
+  "esc_lt": {
+    "to_string": "SelectCharacterCodeTable"
+  },
+  "esc_lu": {
+    "to_string": "TransmitPeripheralDeviceStatus"
+  },
+  "esc_lv": {
+    "to_string": "TransmitPaperSensorStatus"
+  },
+  "esc_lbrace": {
+    "to_string": "TurnUpsideDownPrintModeOnOff"
+  },
+  "fs_exclamation": {
+    "to_string": "SelectPrintModeForKanjiCharacters"
+  },
+  "fs_ampersand": {
+    "to_string": "SelectKanjiCharacterMode"
+  },
+  "fs_lparen_ca": {
+    "to_string": "SelectKanjiCharacterStyle"
+  },
+  "fs_lparen_ca_fn48": {
+    "to_string": "SelectKanjiCharacterFont"
+  },
+  "fs_lparen_cc": {
+    "to_string": "SelectCodeConversionMethod"
+  },
+  "fs_lparen_cc_fn48": {
+    "to_string": "SelectCharacterEncodeSystem"
+  },
+  "fs_lparen_cc_fn60": {
+    "to_string": "SelectCharacterEncodeSystemFn60"
+  },
+  "fs_lparen_ce": {
+    "to_string": "GroupOfCommandsForReceiptEnhancementControl"
+  },
+  "fs_lparen_ce_fn60": {
+    "to_string": "CancelSetValuesForTopBottomLogoPrinting"
+  },
+  "fs_lparen_ce_fn61": {
+    "to_string": "TransmitSetValuesForTopBottomLogoPrinting"
+  },
+  "fs_lparen_ce_fn62": {
+    "to_string": "SetTopLogoPrinting"
+  },
+  "fs_lparen_ce_fn63": {
+    "to_string": "SetBottomLogoPrinting"
+  },
+  "fs_lparen_ce_fn64": {
+    "to_string": "MakeExtendedSettingsForTopBottomLogoPrinting"
+  },
+  "fs_lparen_ce_fn65": {
+    "to_string": "EnableDisableTopBottomLogoPrinting"
+  },
+  "fs_lparen_cl": {
+    "to_string": "SelectLabelAndBlackMarkControlFunction"
+  },
+  "fs_lparen_cl_fn33": {
+    "to_string": "PaperLayoutSetting"
+  },
+  "fs_lparen_cl_fn34": {
+    "to_string": "PaperLayoutInformationTransmission"
+  },
+  "fs_lparen_cl_fn48": {
+    "to_string": "TransmitThePositioningInformation"
+  },
+  "fs_lparen_cl_fn65": {
+    "to_string": "FeedPaperToTheLabelPeelingPosition"
+  },
+  "fs_lparen_cl_fn66": {
+    "to_string": "FeedPaperToTheCuttingPosition"
+  },
+  "fs_lparen_cl_fn67": {
+    "to_string": "FeedPaperToThePrintStartingPosition"
+  },
+  "fs_lparen_cl_fn80": {
+    "to_string": "PaperLayoutErrorSpecialMarginSetting"
+  },
+  "fs_lparen_le": {
+    "to_string": "EnableDisableAutomaticStatusBackForOptionalFunctions"
+  },
+  "fs_minus": {
+    "to_string": "TurnUnderlineModeOnOffForKanjiCharacters"
+  },
+  "fs_period": {
+    "to_string": "CancelKanjiCharacterMode"
+  },
+  "fs_2": {
+    "to_string": "DefineUserDefinedKanjiCharacters"
+  },
+  "fs_questionmark": {
+    "to_string": "CancelUserDefinedKanjiCharacters"
+  },
+  "fs_cc": {
+    "to_string": "SelectKanjiCharacterCodeSystem"
+  },
+  "fs_cs": {
+    "to_string": "SetKanjiCharacterSpacing"
+  },
+  "fs_cw": {
+    "to_string": "TurnQuadrupleSizeModeOnOffForKanjiCharacters"
+  },
+  "fs_lg_1": {
+    "to_string": "WriteToNvUserMemory"
+  },
+  "fs_lg_2": {
+    "to_string": "ReadFromNvUserMemory"
+  },
+  "fs_lp": {
+    "to_string": "PrintNvBitImage"
+  },
+  "fs_lq": {
+    "to_string": "DefineNvBitImage"
+  },
+  "gs_exclamation": {
+    "to_string": "SelectCharacterSize"
+  },
+  "gs_dollarssign": {
+    "to_string": "SetAbsoluteVerticalPrintPositionInPageMode"
+  },
+  "gs_lparen_ca": {
+    "to_string": "ExecuteTestPrint"
+  },
+  "gs_lparen_cc": {
+    "to_string": "EditNvUserMemory"
+  },
+  "gs_lparen_cc_fn0": {
+    "to_string": "DeleteTheSpecifiedRecord"
+  },
+  "gs_lparen_cc_fn1": {
+    "to_string": "StoreTheDataInTheSpecifiedRecord"
+  },
+  "gs_lparen_cc_fn2": {
+    "to_string": "TransmitTheDataInTheSpecifiedRecord"
+  },
+  "gs_lparen_cc_fn3": {
+    "to_string": "TransmitCapacityOfTheNvUserMemoryCurrentlyBeingUsed"
+  },
+  "gs_lparen_cc_fn4": {
+    "to_string": "TransmitTheRemainingCapacityOfTheNvUserMemory"
+  },
+  "gs_lparen_cc_fn5": {
+    "to_string": "TransmitTheKeyCodeList"
+  },
+  "gs_lparen_cc_fn6": {
+    "to_string": "DeleteAllDataInTheNvUserMemory"
+  },
+  "gs_lparen_cd": {
+    "to_string": "EnableDisableRealTimeCommand"
+  },
+  "gs_lparen_ce": {
+    "to_string": "SetUserSetupCommands"
+  },
+  "gs_lparen_ce_fn01": {
+    "to_string": "ChangeIntoTheUserSettingMode"
+  },
+  "gs_lparen_ce_fn02": {
+    "to_string": "EndTheUserSettingModeSession"
+  },
+  "gs_lparen_ce_fn03": {
+    "to_string": "ChangeTheMemorySwitch"
+  },
+  "gs_lparen_ce_fn04": {
+    "to_string": "TransmitTheSettingsOfTheMemorySwitch"
+  },
+  "gs_lparen_ce_fn05": {
+    "to_string": "SetTheCustomizedSettingValues"
+  },
+  "gs_lparen_ce_fn06": {
+    "to_string": "TransmitTheCustomizedSettingValues"
+  },
+  "gs_lparen_ce_fn07": {
+    "to_string": "CopyTheUserDefinedPage"
+  },
+  "gs_lparen_ce_fn08": {
+    "to_string": "DefineTheDataForTheCharacterCodePage"
+  },
+  "gs_lparen_ce_fn09": {
+    "to_string": "DefineTheDataForTheCharacterCodePageFn09"
+  },
+  "gs_lparen_ce_fn10": {
+    "to_string": "DeleteTheDataForTheCharacterCodePage"
+  },
+  "gs_lparen_ce_fn11": {
+    "to_string": "SetTheConfigurationItemForTheSerialInterface"
+  },
+  "gs_lparen_ce_fn12": {
+    "to_string": "TransmitTheConfigurationItemForTheSerialInterface"
+  },
+  "gs_lparen_ce_fn13": {
+    "to_string": "SetTheConfigurationItemForTheBluetoothInterface"
+  },
+  "gs_lparen_ce_fn14": {
+    "to_string": "TransmitTheConfigurationItemForTheBluetoothInterface"
+  },
+  "gs_lparen_ce_fn15": {
+    "to_string": "SetConditionsForUsbInterfaceCommunication"
+  },
+  "gs_lparen_ce_fn16": {
+    "to_string": "TransmitConditionsForUsbInterfaceCommunication"
+  },
+  "gs_lparen_ce_fn48": {
+    "to_string": "DeleteThePaperLayout"
+  },
+  "gs_lparen_ce_fn49": {
+    "to_string": "SetThePaperLayout"
+  },
+  "gs_lparen_ce_fn50": {
+    "to_string": "TransmitThePaperLayoutInformation"
+  },
+  "gs_lparen_ce_fn51": {
+    "to_string": "SetTheControlForLabelPaperAndPaperWithBlackMarks"
+  },
+  "gs_lparen_ce_fn52": {
+    "to_string": "TransmitTheControlSettingsForLabelPaperAndPaperWithBlackMarks"
+  },
+  "gs_lparen_ce_fn99": {
+    "to_string": "SetInternalBuzzerPatterns"
+  },
+  "gs_lparen_ce_fn100": {
+    "to_string": "TransmitInternalBuzzerPatterns"
+  },
+  "gs_lparen_ch": {
+    "to_string": "RequestTransmissionOfResponseOrStatus"
+  },
+  "gs_lparen_ch_fn48": {
+    "to_string": "SpecifiesTheProcessIdResponse"
+  },
+  "gs_lparen_ch_fn49": {
+    "to_string": "SpecifiesTheOfflineResponse"
+  },
+  "gs_lparen_ck": {
+    "to_string": "SelectPrintControlMethod"
+  },
+  "gs_lparen_ck_fn48": {
+    "to_string": "SelectThePrintControlMode"
+  },
+  "gs_lparen_ck_fn49": {
+    "to_string": "SelectThePrintDensity"
+  },
+  "gs_lparen_ck_fn50": {
+    "to_string": "SelectThePrintSpeed"
+  },
+  "gs_lparen_ck_fn97": {
+    "to_string": "SelectTheNumberOfPartsForTheThermalHeadEnergizing"
+  },
+  "gs_lparen_cl": {
+    "to_string": "SetGraphicsData"
+  },
+  "gs_lparen_cl_fn48": {
+    "to_string": "TransmitTheNvGraphicsMemoryCapacity"
+  },
+  "gs_lparen_cl_fn49": {
+    "to_string": "SetTheReferenceDotDensityForGraphics"
+  },
+  "gs_lparen_cl_fn50": {
+    "to_string": "PrintTheGraphicsDataInThePrintBuffer"
+  },
+  "gs_lparen_cl_fn51": {
+    "to_string": "TransmitTheRemainingCapacityOfTheNvGraphicsMemory"
+  },
+  "gs_lparen_cl_fn52": {
+    "to_string": "TransmitTheRemainingCapacityOfTheDownloadGraphicsMemory"
+  },
+  "gs_lparen_cl_fn64": {
+    "to_string": "TransmitTheKeyCodeListForDefinedNvGraphics"
+  },
+  "gs_lparen_cl_fn65": {
+    "to_string": "DeleteAllNvGraphicsData"
+  },
+  "gs_lparen_cl_fn66": {
+    "to_string": "DeleteTheSpecifiedNvGraphicsData"
+  },
+  "gs_lparen_cl_fn67": {
+    "to_string": "DefineTheNvGraphicsData"
+  },
+  "gs_lparen_cl_fn68": {
+    "to_string": "DefineTheNvGraphicsDataFn68"
+  },
+  "gs_lparen_cl_fn69": {
+    "to_string": "PrintTheSpecifiedNvGraphicsData"
+  },
+  "gs_lparen_cl_fn80": {
+    "to_string": "TransmitTheKeyCodeListForDefinedDownloadGraphics"
+  },
+  "gs_lparen_cl_fn81": {
+    "to_string": "DeleteAllDownloadGraphicsData"
+  },
+  "gs_lparen_cl_fn82": {
+    "to_string": "DeleteTheSpecifiedDownloadGraphicsData"
+  },
+  "gs_lparen_cl_fn83": {
+    "to_string": "DefineTheDownloadGraphicsData"
+  },
+  "gs_lparen_cl_fn84": {
+    "to_string": "DefineTheDownloadGraphicsDataFn84"
+  },
+  "gs_lparen_cl_fn85": {
+    "to_string": "PrintTheSpecifiedDownloadGraphicsData"
+  },
+  "gs_lparen_cl_fn112": {
+    "to_string": "StoreTheGraphicsDataInThePrintBuffer"
+  },
+  "gs_lparen_cl_fn113": {
+    "to_string": "StoreTheGraphicsDataInThePrintBufferFn113"
+  },
+  "gs_lparen_cm": {
+    "to_string": "CustomizePrinterControlValue"
+  },
+  "gs_lparen_cm_fn1": {
+    "to_string": "SaveTheSettingValuesFromTheWorkAreaIntoTheStorageArea"
+  },
+  "gs_lparen_cm_fn2": {
+    "to_string": "LoadTheSettingValuesStoredInTheStorageAreaToTheWorkArea"
+  },
+  "gs_lparen_cm_fn3": {
+    "to_string": "SelectTheSettingValuesLoadedToTheWorkAreaAfterTheInitializationProcess"
+  },
+  "gs_lparen_cn": {
+    "to_string": "SelectCharacterEffects"
+  },
+  "gs_lparen_cn_fn48": {
+    "to_string": "SelectCharacterColor"
+  },
+  "gs_lparen_cn_fn49": {
+    "to_string": "SelectBackgroundColor"
+  },
+  "gs_lparen_cn_fn50": {
+    "to_string": "TurnShadingModeOnOff"
+  },
+  "gs_lparen_cp": {
+    "to_string": "PageModeControl"
+  },
+  "gs_lparen_cp_fn48": {
+    "to_string": "SetThePrintableAreaInPageMode"
+  },
+  "gs_lparen_cq": {
+    "to_string": "CommandsForDrawingGraphics"
+  },
+  "gs_lparen_cq_fn48": {
+    "to_string": "DrawLine"
+  },
+  "gs_lparen_cq_fn49": {
+    "to_string": "DrawRectangle"
+  },
+  "gs_lparen_cv": {
+    "to_string": "SpecifyPaperCut"
+  },
+  "gs_lparen_cv_fn48": {
+    "to_string": "PaperCut"
+  },
+  "gs_lparen_cv_fn49": {
+    "to_string": "PaperFeedAndCut"
+  },
+  "gs_lparen_cv_fn51": {
+    "to_string": "PaperCutReservation"
+  },
+  "gs_lparen_lk": {
+    "to_string": "SetUpAndPrintTheSymbol"
+  },
+  "gs_lparen_lk_fn065": {
+    "to_string": "Pdf417SetTheNumberOfColumnsInTheDataRegion"
+  },
+  "gs_lparen_lk_fn066": {
+    "to_string": "Pdf417SetTheNumberOfRows"
+  },
+  "gs_lparen_lk_fn067": {
+    "to_string": "Pdf417SetTheWidthOfTheModule"
+  },
+  "gs_lparen_lk_fn068": {
+    "to_string": "Pdf417SetTheRowHeight"
+  },
+  "gs_lparen_lk_fn069": {
+    "to_string": "Pdf417SetTheErrorCorrectionLevel"
+  },
+  "gs_lparen_lk_fn070": {
+    "to_string": "Pdf417SelectTheOptions"
+  },
+  "gs_lparen_lk_fn080": {
+    "to_string": "Pdf417StoreTheDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn081": {
+    "to_string": "Pdf417PrintTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn082": {
+    "to_string": "Pdf417TransmitTheSizeInformationOfTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn165": {
+    "to_string": "QrCodeSelectTheModel"
+  },
+  "gs_lparen_lk_fn167": {
+    "to_string": "QrCodeSetTheSizeOfModule"
+  },
+  "gs_lparen_lk_fn169": {
+    "to_string": "QrCodeSelectTheErrorCorrectionLevel"
+  },
+  "gs_lparen_lk_fn180": {
+    "to_string": "QrCodeStoreTheDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn181": {
+    "to_string": "QrCodePrintTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn182": {
+    "to_string": "QrCodeTransmitTheSizeInformationOfTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn265": {
+    "to_string": "MaxicodeSelectTheMode"
+  },
+  "gs_lparen_lk_fn280": {
+    "to_string": "MaxicodeStoreTheDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn281": {
+    "to_string": "MaxicodePrintTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn282": {
+    "to_string": "MaxicodeTransmitTheSizeInformationOfTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn367": {
+    "to_string": "N2DimensionalGs1DatabarSetTheWidthOfTheModule"
+  },
+  "gs_lparen_lk_fn371": {
+    "to_string": "N2DimensionalGs1DatabarGs1DatabarExpandedStackedMaximumWidthSetting"
+  },
+  "gs_lparen_lk_fn380": {
+    "to_string": "N2DimensionalGs1DatabarStoreTheDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn381": {
+    "to_string": "N2DimensionalGs1DatabarPrintTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn382": {
+    "to_string": "N2DimensionalGs1DatabarTransmitTheSizeInformationOfTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn467": {
+    "to_string": "CompositeSymbologySetTheWidthOfTheModule"
+  },
+  "gs_lparen_lk_fn471": {
+    "to_string": "CompositeSymbologyGs1DatabarExpandedStackedMaximumWidthSetting"
+  },
+  "gs_lparen_lk_fn472": {
+    "to_string": "CompositeSymbologySelectFontHriCharacters"
+  },
+  "gs_lparen_lk_fn480": {
+    "to_string": "CompositeSymbologyStoreTheDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn481": {
+    "to_string": "CompositeSymbologyPrintTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn482": {
+    "to_string": "CompositeSymbologyTransmitTheSizeInformationOfTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn566": {
+    "to_string": "AztecCodeSetTheNumberOfModeTypesAndDataLayers"
+  },
+  "gs_lparen_lk_fn567": {
+    "to_string": "AztecCodeSetTheSizeOfTheModule"
+  },
+  "gs_lparen_lk_fn569": {
+    "to_string": "AztecCodeSetTheErrorCorrectionLevel"
+  },
+  "gs_lparen_lk_fn580": {
+    "to_string": "AztecCodeStoreTheDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn581": {
+    "to_string": "AztecCodePrintTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn582": {
+    "to_string": "AztecCodeTransmitTheSizeInformationOfTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn666": {
+    "to_string": "DatamatrixSetTheSymbolTypeNumberOfColumnsNumberOfRows"
+  },
+  "gs_lparen_lk_fn667": {
+    "to_string": "DatamatrixSetTheSizeOfTheModule"
+  },
+  "gs_lparen_lk_fn680": {
+    "to_string": "DatamatrixStoreTheDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn681": {
+    "to_string": "DatamatrixPrintTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_lparen_lk_fn682": {
+    "to_string": "DatamatrixTransmitTheSizeInformationOfTheSymbolDataInTheSymbolStorageArea"
+  },
+  "gs_asterisk": {
+    "to_string": "DefineDownloadedBitImage"
+  },
+  "gs_slash": {
+    "to_string": "PrintDownloadedBitImage"
+  },
+  "gs_colon": {
+    "to_string": "StartEndMacroDefinition"
+  },
+  "gs_cb": {
+    "to_string": "TurnWhiteBlackReversePrintModeOnOff"
+  },
+  "gs_cc_0": {
+    "to_string": "SelectCounterPrintMode"
+  },
+  "gs_cc_1": {
+    "to_string": "SelectCountMode"
+  },
+  "gs_cc_2": {
+    "to_string": "SetCounter"
+  },
+  "gs_cc_semicolon": {
+    "to_string": "SelectCountModeGs_cc_semicolon"
+  },
+  "gs_cd": {
+    "to_string": "SpecifyWindowsBmpGraphicsData"
+  },
+  "gs_cd_fn67": {
+    "to_string": "DefineWindowsBmpNvGraphicsData"
+  },
+  "gs_cd_fn83": {
+    "to_string": "DefineWindowsBmpDownloadGraphicsData"
+  },
+  "gs_ch": {
+    "to_string": "SelectPrintPositionOfHriCharacters"
+  },
+  "gs_ci": {
+    "to_string": "TransmitPrinterId"
+  },
+  "gs_cl": {
+    "to_string": "SetLeftMargin"
+  },
+  "gs_cp": {
+    "to_string": "SetHorizontalAndVerticalMotionUnits"
+  },
+  "gs_cq_0": {
+    "to_string": "PrintVariableVerticalSizeBitImage"
+  },
+  "gs_ct": {
+    "to_string": "SetPrintPositionToTheBeginningOfPrintLine"
+  },
+  "gs_cv": {
+    "to_string": "SelectCutModeAndCutPaper"
+  },
+  "gs_cw": {
+    "to_string": "SetPrintAreaWidth"
+  },
+  "gs_backslash": {
+    "to_string": "SetRelativeVerticalPrintPositionInPageMode"
+  },
+  "gs_caret": {
+    "to_string": "ExecuteMacro"
+  },
+  "gs_la": {
+    "to_string": "EnableDisableAutomaticStatusBack"
+  },
+  "gs_lb": {
+    "to_string": "TurnSmoothingModeOnOff"
+  },
+  "gs_lc": {
+    "to_string": "PrintCounter"
+  },
+  "gs_lf": {
+    "to_string": "SelectFontForHriCharacters"
+  },
+  "gs_lg_0": {
+    "to_string": "InitializeMaintenanceCounter"
+  },
+  "gs_lg_2": {
+    "to_string": "TransmitMaintenanceCounter"
+  },
+  "gs_lh": {
+    "to_string": "SetBarcodeHeight"
+  },
+  "gs_lj": {
+    "to_string": "EnableDisableAutomaticStatusBackForInk"
+  },
+  "gs_lk": {
+    "to_string": "PrintBarcode"
+  },
+  "gs_lr": {
+    "to_string": "TransmitStatus"
+  },
+  "gs_lv_0": {
+    "to_string": "PrintRasterBitImage"
+  },
+  "gs_lw": {
+    "to_string": "SetBarcodeWidth"
+  },
+  "gs_lz_0": {
+    "to_string": "SetOnlineRecoveryWaitTime"
+  }
+}

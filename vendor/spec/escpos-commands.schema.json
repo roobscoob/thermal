@@ -1,0 +1,109 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/escpos-commands.schema.json",
+    "title": "ESC/POS Commands",
+    "type": "object",
+    "required": [
+        "categories",
+        "commands"
+    ],
+    "properties": {
+        "categories": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true,
+            "description": "All allowed command categories."
+        },
+        "commands": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/command"
+            },
+            "minItems": 1
+        }
+    },
+    "$defs": {
+        "codes": {
+            "type": "object",
+            "properties": {
+                "ascii": {
+                    "type": [
+                        "string",
+                        "array"
+                    ],
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "hex": {
+                    "type": [
+                        "string",
+                        "array"
+                    ],
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "dec": {
+                    "type": [
+                        "string",
+                        "array"
+                    ],
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "command": {
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "category"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Stable page key, e.g. 'fs_lparen_cc_fn60'"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "Must be in top-level `categories`."
+                },
+                "to_string": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "detailed_message": {
+                    "type": "string"
+                },
+                "codes": {
+                    "$ref": "#/$defs/codes"
+                },
+                "notes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "obsolete": {
+                    "type": "boolean",
+                    "default": false
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}

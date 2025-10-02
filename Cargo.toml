@@ -1,0 +1,7 @@
+[workspace]
+resolver = "3"
+members = [
+    "packages/commands",
+    "packages/macros/escpos",
+    "packages/tools/escpos_build",
+]
