@@ -52,7 +52,7 @@
       "id": "ff_in_page",
       "name": "Print and return to Standard mode (in Page mode)",
       "category": "Print",
-      "to_string": "EndPrint",
+      "to_string": "EndPage",
       "detailed_message": "in Page mode, prints all the data in the print buffer collectively and switches from Page mode to Standard mode.",
       "notes": [
         "This command is enabled only in Page mode. See FF (in Standard mode) to use this command in Standard mode. Page mode can be selected by ESC L .",
@@ -94,7 +94,7 @@
       "id": "dle_eot",
       "name": "Transmit real-time status",
       "category": "Status",
-      "to_string": "TransmitRealTimeStatus",
+      "to_string": "RequestStatus",
       "detailed_message": "Transmits the real-time status, using n as follows:",
       "notes": [
         "This is a Real-time command. Refer to Notes of Real-time Commands for usage note.",
@@ -127,13 +127,16 @@
         "DM-D status ( n = 18, a = 2):",
         "Bit Binary Status Hex Decimal 0 0 Fixed 00 0 1 1 Fixed 02 2 2 0 DM-D transmission status is READY 00 0 1 DM-D transmission status is BUSY 04 4 3 0 (Reserved) 00 0 4 1 Fixed 10 16 5, 6 0 (Reserved) 00 0 7 0 Fixed 00 0"
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::requested_status::RequestedStatus"
+      ]
     },
     {
       "id": "dle_enq",
       "name": "Send real-time request to printer",
       "category": "Miscellaneous",
-      "to_string": "SendRealTimeRequestToPrinter",
+      "to_string": "RealtimeRequest",
       "detailed_message": "Responds to a request in real time from the host computer, using n as follows:",
       "notes": [
         "This is a Real-time command. Refer to Notes of Real-time Commands for usage note.",
@@ -146,13 +149,16 @@
         "In Page mode, if the printer recovers from a recoverable error by using DLE ENQ 2 , the printer returns to Standard mode after clearing the data in receive and print buffers and changing the values set by ESC W to the default values.",
         "After processing DLE ENQ 2 , the print position is moved to left side of the printable area. Also, the printer is in the status \" Beginning of the line \"."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::realtime_request::RealtimeRequest"
+      ]
     },
     {
       "id": "dle_dc4_fn1",
       "name": "Generate pulse in real-time",
       "category": "Miscellaneous",
-      "to_string": "GeneratePulseInRealTime",
+      "to_string": "RealtimeGeneratePulse",
       "detailed_message": "Outputs the pulse specified by t to connector pin m as follows in real time:",
       "notes": [
         "This is a Real-time command. Refer to Notes of Real-time Commands for usage note.",
@@ -164,7 +170,10 @@
         "When this command is disabled by GS ( D",
         "It is not possible to output the pulses to the drawer kick-out connector pin 2 and 5 at the same time."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::pulse_info::RealtimePulseInfo"
+      ]
     },
     {
       "id": "dle_dc4_fn2",
@@ -280,7 +289,10 @@
         "Settings of this command are effective until ESC @ is executed, the printer is reset, or the power is turned off.",
         "It is used to change the spacing between characters."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_exclamation",
@@ -311,7 +323,10 @@
         "space set by HT , ESC $ , and ESC \\",
         "On printers that have the Automatic font replacement function, the replaced font with GS ( E <Function 5> ( a = 111, 112, 113) is selected by this command."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::basic_styles::BasicStyles"
+      ]
     },
     {
       "id": "esc_dollarssign",

@@ -331,6 +331,7 @@ pub fn escpos_commands(input: TokenStream) -> TokenStream {
         .map(|(i, c)| variant_tokens_with_ident(c, &variant_idents[i], &field_types[i]));
 
     let cmd_enum = quote! {
+        #[repr(C)]
         #derive_attr
         #discr_attr
         pub enum #enum_name {
@@ -525,11 +526,7 @@ fn compact_id_suffix(id: &str) -> String {
 }
 
 fn uniquify_variant_name(base_pretty: &str, id: &str, used: &mut HashSet<String>) -> syn::Ident {
-    let mut cand = pascalize(base_pretty);
-    if cand.is_empty() {
-        cand = pascalize(id);
-    }
-    let mut final_name = cand.clone();
+    let final_name = base_pretty.is_empty().then_some(id).unwrap_or(base_pretty);
 
     let try_insert = |s: &str, used: &mut HashSet<String>| -> Option<String> {
         let mut s2 = s.to_string();

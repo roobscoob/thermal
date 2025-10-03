@@ -2,6 +2,6 @@
 resolver = "3"
 members = [
     "packages/commands",
-    "packages/macros/escpos",
+    "packages/macros/escpos", "packages/scratch",
     "packages/tools/escpos_build",
 ]
