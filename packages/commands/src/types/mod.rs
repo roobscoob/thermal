@@ -1,4 +1,14 @@
 pub mod basic_styles;
+pub mod batch_print;
+pub mod bit_image_band;
+pub mod character_set;
+pub mod cut_mode;
+pub mod font;
+pub mod justification;
+pub mod print_area;
+pub mod print_color;
+pub mod print_direction;
 pub mod pulse_info;
 pub mod realtime_request;
 pub mod requested_status;
+pub mod user_defined_characters;

@@ -1,7 +1,7 @@
 use winnow::{
     Parser, Partial,
     combinator::{dispatch, empty, fail},
-    error::ContextError,
+    error::{ContextError, ErrMode},
     token::take,
 };
 
@@ -21,7 +21,7 @@ use crate::{
 
 pub fn dle_command<'i>(
     state: &ParserState,
-) -> impl Parser<Partial<&'i [u8]>, Command, ContextError<ErrorCtx>> {
+) -> impl Parser<Partial<&'i [u8]>, Command, ErrMode<ContextError<ErrorCtx>>> {
     dispatch!(take(1usize).map(|v: &[u8]| v[0]);
         0x04 => RequestedStatus::parser().map(|status| Command::RequestStatus(status)),
         0x05 => RealtimeRequest::parser().map(|status| Command::RealtimeRequest(status)),

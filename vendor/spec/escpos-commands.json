@@ -345,7 +345,10 @@
         "The printer will not be in the beginning of the line by executing this command.",
         "Even if underline mode is turned on, the underline will not be printed under the space skipped by this command."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u16"
+      ]
     },
     {
       "id": "esc_percent",
@@ -357,7 +360,10 @@
         "When the user-defined character set is canceled, the resident character set is automatically selected.",
         "Settings of this command are effective until ESC @ is executed, the printer is reset, or the power is turned off."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "bool"
+      ]
     },
     {
       "id": "esc_ampersand",
@@ -380,7 +386,10 @@
         "The relationship between the definition data and printing result is as follows.",
         "Example: Downloaded character definition consists of 7 × 9 dots. ( x = 7, y = 2) (In the second byte in the vertical direction ( d2, d4, d6, d8, d10, d12, d14 ), use MSB only.)"
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "Vec<crate::types::user_defined_characters::UserDefinedCharacter>"
+      ]
     },
     {
       "id": "esc_lparen_ca",
@@ -493,7 +502,11 @@
       "category": "Miscellaneous",
       "to_string": "SpecifyBatchPrint",
       "detailed_message": "Select batch print Enable/Disable. m Function 0, 48 Disabling of batch print 1, 49 Enabling of batch print Select print direction. n Function 0, 48 Forward (print from upper side of characters) 1, 49 Reverse (print upside-down) This command's setting is not initialized by ESC @ . After m = 1 is specified, accumulated data is printed under the following conditions: When m = 1 has changed to m = 0 When n has changed When the following commands are to be executed: FF (in Standard mode) End job, ESC ( A Sound buzzer, ESC L Select page mode, ESC i [obsolete command] Partial cut, ESC m [obsolete command] Partial cut, ESC p Generate specified pulse, GS ( A Execute test print, GS ( E <Function 1> Change into the user setting mode, GS ( V <Function 48> Paper cut, GS ( V <Function 49> Paper feed and cut, GS V [A] Cut paper, GS V [B] Feed paper and cut paper When 80 or more lines have been saved, print the saved data. Even when batch printing by m = 1 is in enabled status, if command capable of acquiring status has been executed, command will be executed. If batch printing by m = 1 is in enabled status and height magnification is set to 3x or larger by GS ! n command, GS ! n command will be ignored. If batch printing by m = 0 is in disabled status, 3x or larger has been set by GS ! n command, and m = 1 has been specified by this command, the GS ! n height magnification setting will be reduced to 2x. ESC { n command is not affected. \"Clear buffer\" will clear accumulated data.",
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::batch_print::BatchPrintMode",
+        "crate::types::batch_print::BatchPrintDirection"
+      ]
     },
     {
       "id": "esc_asterisk",
@@ -513,7 +526,10 @@
         "8 dot mode ( m = 0, 1)",
         "24 dot mode ( m = 32, 33)"
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::bit_image_band::BitImageBand"
+      ]
     },
     {
       "id": "esc_minus",
@@ -530,7 +546,10 @@
         "Setting of this command is effective until ESC ! is executed, ESC @ is executed, the printer is reset, or the power is turned off.",
         "Some of the printer models support the 2-dot thick underline ( n = 2 or 50)."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_2",
@@ -568,7 +587,10 @@
         "When the motion unit is changed after the line spacing is set, the line spacing setting does not change.",
         "Selected line spacing is effective until ESC 2 is executed, ESC @ is executed, the printer is reset, or the power is turned off."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_less_than_sign",
@@ -601,7 +623,10 @@
         "(∗1) When the setting of ESC = is ( n = 2), n is not changed because ESC @ is not executed.",
         "For a parallel interface model and a model without the [Connection of DM-D ] switch, the cases that the switch is OFF in the above table are applicable."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_questionmark",
@@ -613,7 +638,10 @@
         "After the user-defined characters are canceled, the resident character set is printed.",
         "This command can cancel user-defined characters for each font independently. To select a font, use ESC ! or ESC M ."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_atsign",
@@ -667,7 +695,10 @@
         "This mode is effective for alphanumeric, Kana, multilingual, and user-defined characters.",
         "Settings of this command are effective until ESC ! is executed, ESC @ is executed, the printer is reset, or the power is turned off."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "bool"
+      ]
     },
     {
       "id": "esc_cg",
@@ -679,7 +710,10 @@
         "This mode is effective for alphanumeric, Kana, multilingual, and user-defined characters.",
         "Settings of this command are effective until ESC ! is executed, ESC @ is executed, the printer is reset, or the power is turned off."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "bool"
+      ]
     },
     {
       "id": "esc_cj",
@@ -698,7 +732,10 @@
         "When this command is processed in Page mode, only the print position moves; the printer does not perform actual printing.",
         "This command is used to temporarily feed a specific length without changing the line spacing set by other commands."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_ck",
@@ -718,7 +755,10 @@
         "This command is used to temporarily feed a specific length without changing the line spacing set by other commands.",
         "Some printers execute a little forward paper feed after reverse feed, from a restriction of the printer mechanism."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_cl",
@@ -756,19 +796,25 @@
         "Settings of this command are effective until ESC ! is executed, ESC @ is executed, the printer is reset, or the power is turned off.",
         "On the printer that has the Automatic font replacement function, the replaced font with GS ( E <Function 5> ( a = 111 or 112 or 113) is selected by this command."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::font::Font"
+      ]
     },
     {
       "id": "esc_cr",
       "name": "Select an international character set",
       "category": "Character",
-      "to_string": "SelectAnInternationalCharacterSet",
+      "to_string": "SelectInternationalCharacterSet",
       "detailed_message": "Selects an international character set n as follows:",
       "notes": [
         "The selected international character set is effective until ESC @ is executed, the printer is reset, or the power is turned off.",
         "Refer to Character Code Tables for TM printers for the international characters."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::character_set::CharacterTable"
+      ]
     },
     {
       "id": "esc_cs",
@@ -811,7 +857,10 @@
         "These commands use vertical motion units: ESC SP , ESC $ , ESC \\ , FS S",
         "Settings of this command are effective until ESC @ is executed, the printer is reset, or the power is turned off."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::print_direction::PrintDirection"
+      ]
     },
     {
       "id": "esc_cu",
@@ -829,7 +878,10 @@
         "Unidirectional print mode can be turned on when printing double-height characters or graphics or bit image or two-dimensional code to ensure that the top and bottom of the printing patterns are aligned.",
         "Settings of this command are effective until ESC @ is executed, the printer is reset, or the power is turned off."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "bool"
+      ]
     },
     {
       "id": "esc_cv",
@@ -846,7 +898,10 @@
         "Some printer models have a font for which 90° clockwise rotation mode is not effective.",
         "Settings of this command are effective until ESC @ is executed, the printer is reset, or the power is turned off."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_cw",
@@ -874,7 +929,10 @@
         "Settings of this command are effective until FF (in Page mode) is executed, ESC @ is executed, the printer is reset, or the power is turned off.",
         "This command setting has no effect in Standard mode."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::print_area::PrintArea"
+      ]
     },
     {
       "id": "esc_backslash",
@@ -894,7 +952,10 @@
         "When underline mode is turned on, the underline will not be printed under the space skipped by this command.",
         "\"\\\" corresponds to \"¥\" in the JIS code system."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "i16"
+      ]
     },
     {
       "id": "esc_la",
@@ -909,7 +970,10 @@
         "This command justifies printing data (such as characters, all graphics, barcodes, and two-dimensional code) and space area set by HT , ESC $ , and ESC \\ .",
         "Settings of this command are effective until ESC @ is executed, the printer is reset, or the power is turned off."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::justification::Justification"
+      ]
     },
     {
       "id": "esc_lc_3",
@@ -928,7 +992,10 @@
         "Settings of this command are effective until ESC @ is executed, the printer is reset, or the power is turned off.",
         "This command is ignored in interfaces that do not use the paper-end signal."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_lc_4",
@@ -947,7 +1014,10 @@
         "When a roll paper end is detected, the printer performs the same operations as when a roll paper near-end is detected.",
         "Settings of this command are effective until ESC @ is executed, the printer is reset, or the power is turned off."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_lc_5",
@@ -966,7 +1036,10 @@
         "When waiting for an online recovery for the TM-L90 with Peeler",
         "When the printer is waiting for the button to be pressed while GS ^ is executed"
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "bool"
+      ]
     },
     {
       "id": "esc_ld",
@@ -981,7 +1054,10 @@
         "When this command is processed in Page mode, only the print position moves, and the printer does not perform actual printing.",
         "This command is used to temporarily feed a specific line without changing the line spacing set by other commands."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_le",
@@ -997,13 +1073,16 @@
         "This command is used to temporarily feed a specific line without changing the line spacing set by other commands.",
         "Some printers execute a little forward paper feed after reverse feed, from a restriction of the printer mechanism."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8"
+      ]
     },
     {
       "id": "esc_li",
       "name": "Partial cut (one point left uncut)",
       "category": "Mech. Control",
-      "to_string": "PartialCut",
+      "to_string": "PartialCutOne",
       "detailed_message": "Executes a partial cut of the roll paper.",
       "notes": [
         "See GS V <Function A> for details.",
@@ -1015,7 +1094,7 @@
       "id": "esc_lm",
       "name": "Partial cut (three points left uncut)",
       "category": "Mech. Control",
-      "to_string": "PartialCutEsc_lm",
+      "to_string": "PartialCutThree",
       "detailed_message": "Executes a partial cut of the roll paper.",
       "notes": [
         "See GS V <Function A> for details.",
@@ -1034,7 +1113,12 @@
         "If t2 < t1 , the OFF time is equal to the ON time.",
         "It is not possible to output the pulses to the drawer kick-out connector pin 2 and 5 at the same time."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::pulse_info::PulseConnector",
+        "u8",
+        "u8"
+      ]
     },
     {
       "id": "esc_lr",
@@ -1049,7 +1133,10 @@
         "GS ( N and GS ( L / GS 8 L are available to define two-color printing. It is recommended that the commands shown below be used with the models that feature these commands.",
         "Printing data Command <Function> Character GS ( N <Function 48> Background GS ( N <Function 49> Graphics GS ( L / GS 8 L GS ( L <Function 50> , GS ( L / GS 8 L <Function 112> , GS ( L / GS 8 L <Function 113> NV graphics GS ( L / GS 8 L GS ( L / GS 8 L <Function 67> , GS ( L / GS 8 L <Function 68> , GS ( L <Function 69> Download graphics GS ( L / GS 8 L GS ( L / GS 8 L <Function 83> , GS ( L / GS 8 L <Function 84> , GS ( L <Function 85>"
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::print_color::PrintColor"
+      ]
     },
     {
       "id": "esc_lt",
@@ -1062,7 +1149,10 @@
         "The selected character code table is valid until ESC @ is executed, the printer is reset, or the power is turned off.",
         "For characters in each code page, refer to Character Code Tables for TM printers > Single-byte Characters > Code Pages."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::character_set::CharacterCodeTable"
+      ]
     },
     {
       "id": "esc_lu",
@@ -1108,7 +1198,10 @@
         "Settings of this command are effective until ESC @ is executed, the printer is reset, or the power is turned off.",
         "When upside-down print mode is turned on, the printer prints 180°-rotated characters from right to left. The line printing order is not reversed; therefore, be careful of the order of the data transmitted."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "bool"
+      ]
     },
     {
       "id": "fs_exclamation",
@@ -1753,7 +1846,11 @@
         "The setting of the character size of alphanumeric and Katakana is effective until ESC ! is executed, ESC @ is executed, the printer is reset, or the power is turned off.",
         "The setting of the character size of Kanji and multilingual characters is effective until FS ! is executed, FS W is executed, ESC @ is executed, the printer is reset, or the power is turned off."
       ],
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "u8",
+        "u8"
+      ]
     },
     {
       "id": "gs_dollarssign",
@@ -4363,7 +4460,10 @@
       "category": "Mech. Control",
       "to_string": "SelectCutModeAndCutPaper",
       "detailed_message": "Executes paper cutting specified by m , as follows:",
-      "obsolete": false
+      "obsolete": false,
+      "content": [
+        "crate::types::cut_mode::CutMode"
+      ]
     },
     {
       "id": "gs_cw",

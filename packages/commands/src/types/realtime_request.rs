@@ -2,7 +2,7 @@ use facet::Facet;
 use winnow::{
     Parser, Partial,
     combinator::{alt, empty},
-    error::ContextError,
+    error::{ContextError, ErrMode},
 };
 
 use crate::commands::reader::error::ErrorCtx;
@@ -21,7 +21,7 @@ pub enum RealtimeRequest {
 }
 
 impl RealtimeRequest {
-    pub fn parser<'i>() -> impl Parser<Partial<&'i [u8]>, Self, ContextError<ErrorCtx>> {
+    pub fn parser<'i>() -> impl Parser<Partial<&'i [u8]>, Self, ErrMode<ContextError<ErrorCtx>>> {
         alt((
             0x00.value(RealtimeRequest::ResumeFeed),
             0x01.value(RealtimeRequest::Recover),

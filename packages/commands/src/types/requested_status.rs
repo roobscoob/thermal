@@ -3,7 +3,7 @@ use winnow::{
     Parser, Partial,
     binary::u8,
     combinator::{dispatch, empty},
-    error::ContextError,
+    error::{ContextError, ErrMode},
 };
 
 use crate::commands::reader::error::ErrorCtx;
@@ -22,7 +22,7 @@ pub enum RequestedStatus {
 }
 
 impl RequestedStatus {
-    pub fn parser<'i>() -> impl Parser<Partial<&'i [u8]>, Self, ContextError<ErrorCtx>> {
+    pub fn parser<'i>() -> impl Parser<Partial<&'i [u8]>, Self, ErrMode<ContextError<ErrorCtx>>> {
         dispatch! {u8; // read the first tag byte
             0x01 => empty.value(RequestedStatus::Printer),
             0x02 => empty.value(RequestedStatus::OfflineCause),

@@ -2,7 +2,11 @@ use std::alloc::Layout;
 
 use bitfield_struct::bitfield;
 use facet::{ConstTypeId, Def, Facet, MarkerTraits, Shape, Type, ValueVTable, ValueVTableSized};
-use winnow::{Parser, Partial, binary::u8, error::ContextError};
+use winnow::{
+    Parser, Partial,
+    binary::u8,
+    error::{ContextError, ErrMode},
+};
 
 use crate::commands::reader::error::ErrorCtx;
 
@@ -62,7 +66,7 @@ unsafe impl<'f> Facet<'f> for BasicStyles {
 }
 
 impl BasicStyles {
-    pub fn parser<'i>() -> impl Parser<Partial<&'i [u8]>, Self, ContextError<ErrorCtx>> {
+    pub fn parser<'i>() -> impl Parser<Partial<&'i [u8]>, Self, ErrMode<ContextError<ErrorCtx>>> {
         u8.map(|v| BasicStyles::from_bits(v))
     }
 }

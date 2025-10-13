@@ -429,6 +429,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "facet-pretty"
+version = "0.29.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "644ee0f611efad156a4cd15a456f5185b9eaaffacd2a3a903c16f824122a2ca0"
+dependencies = [
+ "facet-core",
+ "facet-reflect",
+]
+
+[[package]]
+name = "facet-reflect"
+version = "0.29.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b19421a5caf7eb6a04d41fe4b1438aa24689c3ca155bfe3e81368955c0b53d30"
+dependencies = [
+ "bitflags",
+ "facet-core",
+]
+
+[[package]]
 name = "fastrand"
 version = "2.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1608,6 +1628,12 @@ dependencies = [
 [[package]]
 name = "scratch"
 version = "0.1.0"
+dependencies = [
+ "commands",
+ "facet",
+ "facet-pretty",
+ "winnow",
+]
 
 [[package]]
 name = "security-framework"

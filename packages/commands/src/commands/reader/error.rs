@@ -1,3 +1,5 @@
+use winnow::{Partial, error::ParserError};
+
 #[derive(Debug, Clone, Copy)]
 pub enum ErrorLabel {
     Depth(u8),

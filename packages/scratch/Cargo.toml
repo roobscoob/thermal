@@ -4,3 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+commands = { path = "../commands" }
+facet = "0.29.0"
+facet-pretty = { version = "0.29.0", features = ["alloc"] }
+winnow = "0.7.13"

@@ -1,16 +1,23 @@
 pub mod data_link_escape;
 pub mod escape;
+pub mod field_separator;
+pub mod group_separator;
 
 use winnow::{
     Parser, Partial,
     combinator::{dispatch, empty, fail},
+    error::ContextError,
     token::take,
 };
 
 use crate::commands::{
     Command,
     reader::{
-        commands::{data_link_escape::dle_command, escape::esc_command},
+        Output,
+        commands::{
+            data_link_escape::dle_command, escape::esc_command, field_separator::fs_command,
+            group_separator::gs_command,
+        },
         error::ErrorCtx,
         state::{Mode, ParserState},
     },
@@ -18,20 +25,23 @@ use crate::commands::{
 
 pub fn command<'i>(
     state: &ParserState,
-) -> impl Parser<Partial<&'i [u8]>, Command, winnow::error::ContextError<ErrorCtx>> {
+) -> impl Parser<Partial<&'i [u8]>, Output, winnow::error::ErrMode<ContextError<ErrorCtx>>> {
     dispatch!(take(1usize).map(|v: &[u8]| v[0]);
-        b'\t' => empty.value(Command::HorizontalTab),
-        b'\n' => empty.value(Command::LineFeed),
-        b'\r' => empty.value(Command::CarriageReturn),
+        b'\t' => empty.value(Output::Command(Command::HorizontalTab)),
+        b'\n' => empty.value(Output::Command(Command::LineFeed)),
+        b'\r' => empty.value(Output::Command(Command::CarriageReturn)),
 
-        0x1B => esc_command(state),
-        0x18 => empty.value(Command::CancelPrintDataInPageMode),
-        0x10 => dle_command(state),
-        0x0C => empty.value(match state.mode() {
+        0x1B => esc_command(state).map(|v| Output::Command(v)),
+        0x18 => empty.value(Output::Command(Command::CancelPrintDataInPageMode)),
+        0x10 => dle_command(state).map(|v| Output::Command(v)),
+        0x0C => empty.value(Output::Command(match state.mode() {
             Mode::Standard => Command::EndJob,
             Mode::Page => Command::EndPage,
-        }),
+        })),
 
-        _ => fail,
+        0x1C => fs_command(state).map(|v| Output::Command(v)),
+        0x1D => gs_command(state).map(|v| Output::Command(v)),
+
+        v => empty.value(Output::Raw(v)),
     )
 }

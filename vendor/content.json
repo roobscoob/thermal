@@ -24,9 +24,168 @@
             "crate::types::basic_styles::BasicStyles"
         ]
     },
-    "esc_dollarsign": {
+    "esc_dollarssign": {
         "content": [
             "u16"
+        ]
+    },
+    "esc_percent": {
+        "content": [
+            "bool"
+        ]
+    },
+    "esc_ampersand": {
+        "content": [
+            "Vec<crate::types::user_defined_characters::UserDefinedCharacter>"
+        ]
+    },
+    "esc_lparen_cy": {
+        "content": [
+            "crate::types::batch_print::BatchPrintMode",
+            "crate::types::batch_print::BatchPrintDirection"
+        ]
+    },
+    "esc_asterisk": {
+        "content": [
+            "crate::types::bit_image_band::BitImageBand"
+        ]
+    },
+    "esc_minus": {
+        "content": [
+            "u8"
+        ]
+    },
+    "esc_3": {
+        "content": [
+            "u8"
+        ]
+    },
+    "esc_equal": {
+        "content": [
+            "u8"
+        ]
+    },
+    "esc_questionmark": {
+        "content": [
+            "u8"
+        ]
+    },
+    "esc_ce": {
+        "content": [
+            "bool"
+        ]
+    },
+    "esc_cg": {
+        "content": [
+            "bool"
+        ]
+    },
+    "esc_cj": {
+        "content": [
+            "u8"
+        ]
+    },
+    "esc_ck": {
+        "content": [
+            "u8"
+        ]
+    },
+    "esc_cm": {
+        "content": [
+            "crate::types::font::Font"
+        ]
+    },
+    "esc_cr": {
+        "content": [
+            "crate::types::character_set::CharacterTable"
+        ]
+    },
+    "esc_ct": {
+        "content": [
+            "crate::types::print_direction::PrintDirection"
+        ]
+    },
+    "esc_cu": {
+        "content": [
+            "bool"
+        ]
+    },
+    "esc_cv": {
+        "content": [
+            "u8"
+        ]
+    },
+    "esc_cw": {
+        "content": [
+            "crate::types::print_area::PrintArea"
+        ]
+    },
+    "esc_backslash": {
+        "content": [
+            "i16"
+        ]
+    },
+    "esc_la": {
+        "content": [
+            "crate::types::justification::Justification"
+        ]
+    },
+    "esc_lc_3": {
+        "content": [
+            "u8"
+        ]
+    },
+    "esc_lc_4": {
+        "content": [
+            "u8"
+        ]
+    },
+    "esc_lc_5": {
+        "content": [
+            "bool"
+        ]
+    },
+    "esc_ld": {
+        "content": [
+            "u8"
+        ]
+    },
+    "esc_le": {
+        "content": [
+            "u8"
+        ]
+    },
+    "esc_lp": {
+        "content": [
+            "crate::types::pulse_info::PulseConnector",
+            "u8",
+            "u8"
+        ]
+    },
+    "esc_lr": {
+        "content": [
+            "crate::types::print_color::PrintColor"
+        ]
+    },
+    "esc_lt": {
+        "content": [
+            "crate::types::character_set::CharacterCodeTable"
+        ]
+    },
+    "esc_lbrace": {
+        "content": [
+            "bool"
+        ]
+    },
+    "gs_exclamation": {
+        "content": [
+            "u8",
+            "u8"
+        ]
+    },
+    "gs_cv": {
+        "content": [
+            "crate::types::cut_mode::CutMode"
         ]
     }
 }

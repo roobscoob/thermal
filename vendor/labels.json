@@ -120,7 +120,7 @@
     "to_string": "SelectCharacterFont"
   },
   "esc_cr": {
-    "to_string": "SelectAnInternationalCharacterSet"
+    "to_string": "SelectInternationalCharacterSet"
   },
   "esc_cs": {
     "to_string": "SelectStandardMode"
@@ -159,10 +159,10 @@
     "to_string": "PrintAndReverseFeedNLines"
   },
   "esc_li": {
-    "to_string": "PartialCut"
+    "to_string": "PartialCutOne"
   },
   "esc_lm": {
-    "to_string": "PartialCutEsc_lm"
+    "to_string": "PartialCutThree"
   },
   "esc_lp": {
     "to_string": "GeneratePulse"

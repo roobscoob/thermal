@@ -2,7 +2,7 @@ use facet::Facet;
 use winnow::{
     Parser, Partial,
     combinator::{dispatch, empty, fail},
-    error::ContextError,
+    error::{ContextError, ErrMode},
     token::take,
 };
 
@@ -19,7 +19,7 @@ pub enum PulseConnector {
 pub struct RealtimePulseInfo(PulseConnector, u8);
 
 impl RealtimePulseInfo {
-    pub fn parser<'i>() -> impl Parser<Partial<&'i [u8]>, Self, ContextError<ErrorCtx>> {
+    pub fn parser<'i>() -> impl Parser<Partial<&'i [u8]>, Self, ErrMode<ContextError<ErrorCtx>>> {
         dispatch!(take(2usize).map(|v: &[u8]| (v[0], v[1]));
             (0, v @ 1..8) => empty.value(RealtimePulseInfo(PulseConnector::Pin2, v)),
             (1, v @ 1..8) => empty.value(RealtimePulseInfo(PulseConnector::Pin5, v)),
