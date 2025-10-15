@@ -1,6 +1,7 @@
 pub mod reader;
+pub mod writer;
 
-use escpos_macros::escpos_commands;
+use thermal_escpos_macros::escpos_commands;
 
 escpos_commands! {
     SPEC_PATH = "../../vendor/spec/escpos-commands.json",

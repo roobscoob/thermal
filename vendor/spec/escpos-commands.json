@@ -813,7 +813,7 @@
       ],
       "obsolete": false,
       "content": [
-        "crate::types::character_set::CharacterTable"
+        "crate::types::character_set::AsciiVariant"
       ]
     },
     {
@@ -1151,7 +1151,7 @@
       ],
       "obsolete": false,
       "content": [
-        "crate::types::character_set::CharacterCodeTable"
+        "crate::types::character_set::Codepage"
       ]
     },
     {

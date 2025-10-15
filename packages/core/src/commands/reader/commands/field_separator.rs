@@ -20,7 +20,7 @@ use crate::{
 };
 
 pub fn fs_command<'i>(
-    state: &ParserState,
+    state: &impl ParserState,
 ) -> impl Parser<Partial<&'i [u8]>, Command, ErrMode<ContextError<ErrorCtx>>> {
     dispatch!(take(1usize).map(|v: &[u8]| v[0]);
         0x2E => empty.value(Command::CancelKanjiCharacterMode),

@@ -15,7 +15,7 @@ use crate::{
         basic_styles::BasicStyles,
         batch_print::{BatchPrintDirection, BatchPrintMode},
         bit_image_band::BitImageBand,
-        character_set::{CharacterCodeTable, CharacterTable},
+        character_set::{AsciiVariant, Codepage},
         font::Font,
         justification::Justification,
         print_area::PrintArea,
@@ -27,7 +27,7 @@ use crate::{
 };
 
 pub fn esc_command<'i>(
-    state: &ParserState,
+    state: &impl ParserState,
 ) -> impl Parser<Partial<&'i [u8]>, Command, ErrMode<ContextError<ErrorCtx>>> {
     dispatch!(take(1usize).map(|v: &[u8]| v[0]);
         0x0C => empty.value(Command::PrintDataInPageMode),
@@ -59,7 +59,7 @@ pub fn esc_command<'i>(
         0x2D => dispatch!(take(1usize).map(|v: &[u8]| v[0]);
             0x00 | b'0' => empty.value(Command::TurnUnderlineModeOnOff(0)),
             0x01 | b'1' => empty.value(Command::TurnUnderlineModeOnOff(1)),
-            0x02 | b'2' => empty.value(Command::TurnUnderlineModeOnOff(1)),
+            0x02 | b'2' => empty.value(Command::TurnUnderlineModeOnOff(2)),
 
             _ => fail,
         ),
@@ -79,14 +79,14 @@ pub fn esc_command<'i>(
         0x4D => le_u8.map(|v| Command::SelectCharacterFont(Font::from_n(v).unwrap())),
 
         // TODO: Fix unwrap here!
-        0x52 => le_u8.map(|v| Command::SelectInternationalCharacterSet(CharacterTable::from_repr(v).unwrap())),
+        0x52 => le_u8.map(|v| Command::SelectInternationalCharacterSet(AsciiVariant::from_repr(v).unwrap())),
 
         0x53 => empty.value(Command::SelectStandardMode),
 
         // TODO: Fix unwrap here!
         0x54 => le_u8.map(|v| Command::SelectPrintDirectionInPageMode(PrintDirection::from_bits(v).unwrap())),
 
-        0x45 => le_u8.map(|v| Command::Turn90ClockwiseRotationModeOnOff(match v {
+        0x56 => le_u8.map(|v| Command::Turn90ClockwiseRotationModeOnOff(match v {
             0 | b'0' => 0,
             1 | b'1' => 1,
             2 | b'2' => 2,
@@ -109,7 +109,7 @@ pub fn esc_command<'i>(
         ),
 
         0x64 => le_u8.map(|v| Command::PrintAndFeedNLines(v)),
-        0x64 => le_u8.map(|v| Command::PrintAndReverseFeedNLines(v)),
+        0x65 => le_u8.map(|v| Command::PrintAndReverseFeedNLines(v)),
         0x69 => empty.map(|v| Command::PartialCutOne),
         0x6D => empty.map(|v| Command::PartialCutThree),
 
@@ -124,7 +124,7 @@ pub fn esc_command<'i>(
         0x72 => le_u8.map(|v| Command::SelectPrintColor(PrintColor::from_bits(v).unwrap())),
 
         // TODO: Fix unwrap here!
-        0x74 => le_u8.map(|v| Command::SelectCharacterCodeTable(CharacterCodeTable::from_repr(v).unwrap())),
+        0x74 => le_u8.map(|v| Command::SelectCharacterCodeTable(Codepage::from_repr(v).unwrap())),
 
         0x75 => dispatch!(take(1usize).map(|v: &[u8]| v[0]);
             0x00 | b'0' => empty.value(Command::TransmitPeripheralDeviceStatus),

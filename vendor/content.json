@@ -97,7 +97,7 @@
     },
     "esc_cr": {
         "content": [
-            "crate::types::character_set::CharacterTable"
+            "crate::types::character_set::AsciiVariant"
         ]
     },
     "esc_ct": {
@@ -169,7 +169,7 @@
     },
     "esc_lt": {
         "content": [
-            "crate::types::character_set::CharacterCodeTable"
+            "crate::types::character_set::Codepage"
         ]
     },
     "esc_lbrace": {

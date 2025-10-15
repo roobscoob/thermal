@@ -1,5 +1,7 @@
 use facet::Facet;
 
+use crate::state::{IntoState, State};
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Facet)]
 #[repr(u8)]
 pub enum Font {
@@ -25,5 +27,11 @@ impl Font {
             b'b' => Some(Font::SpecialB),
             _ => None,
         }
+    }
+}
+
+impl IntoState for Font {
+    fn into_state(&self) -> crate::state::State {
+        State::default().with_font(*self)
     }
 }

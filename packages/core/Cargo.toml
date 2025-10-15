@@ -1,5 +1,5 @@
 [package]
-name = "commands"
+name = "thermal"
 version = "0.1.0"
 edition = "2024"
 
@@ -9,5 +9,8 @@ facet = "0.29.0"
 strum = { version = "0.27.2", features = ["derive"] }
 winnow = "0.7.13"
 
-[dependencies.escpos-macros]
+[dependencies.thermal-escpos-macros]
 path = "../macros/escpos"
+
+[dependencies.thermal-encoding]
+path = "../encoding"

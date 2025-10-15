@@ -1,7 +1,11 @@
 [workspace]
 resolver = "3"
 members = [
-    "packages/commands",
-    "packages/macros/escpos", "packages/scratch",
+    "packages/encoding",
+    "packages/macros/escpos",
+    "packages/macros/encoding",
+    "packages/scratch",
     "packages/tools/escpos_build",
+    "packages/emulators/tm-t88v",
+    "packages/core",
 ]

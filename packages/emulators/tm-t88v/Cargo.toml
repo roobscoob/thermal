@@ -1,0 +1,17 @@
+[package]
+name = "thermal-emulator-tm-t88v"
+version = "0.2.0"
+edition = "2021"
+
+[dependencies]
+base64 = "0.22.1"
+thermal = { path = "../../core" }
+thermal-encoding = { path = "../../encoding" }
+facet = "0.29.0"
+facet-pretty = { version = "0.29.0", features = ["alloc"] }
+reqwest = { version = "0.12.24", features = ["blocking"] }
+winnow = "0.7.13"
+strum = { version = "0.27.2", features = ["derive"] }
+miette = "7.6.0"
+thiserror = "2.0.17"
+itertools = "0.14.0"

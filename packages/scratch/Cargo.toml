@@ -4,7 +4,18 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-commands = { path = "../commands" }
+base64 = "0.22.1"
+thermal = { path = "../core" }
 facet = "0.29.0"
 facet-pretty = { version = "0.29.0", features = ["alloc"] }
+reqwest = { version = "0.12.24", features = ["blocking"] }
 winnow = "0.7.13"
+strum = { version = "0.27.2", features = ["derive"] }
+nusb = { version = "0.2.1", features = ["tokio"] }
+tokio = { version = "1.48.0", features = ["full"] }
+
+[dependencies.thermal-encoding]
+path = "../encoding"
+
+[dependencies.thermal-emulator-tm-t88v]
+path = "../emulators/tm-t88v"

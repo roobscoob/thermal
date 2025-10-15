@@ -24,7 +24,7 @@ use crate::commands::{
 };
 
 pub fn command<'i>(
-    state: &ParserState,
+    state: &impl ParserState,
 ) -> impl Parser<Partial<&'i [u8]>, Output, winnow::error::ErrMode<ContextError<ErrorCtx>>> {
     dispatch!(take(1usize).map(|v: &[u8]| v[0]);
         b'\t' => empty.value(Output::Command(Command::HorizontalTab)),

@@ -1,5 +1,5 @@
 [package]
-name = "escpos_build"
+name = "thermal_escpos_build"
 version = "0.2.0"
 edition = "2021"
 

@@ -23,8 +23,8 @@ pub enum Output {
 impl Command {
     pub fn parse<'i>(
         input: &mut Partial<&'i [u8]>,
-        state: &mut ParserState,
+        state: &impl ParserState,
     ) -> winnow::Result<Output, ErrMode<ContextError<ErrorCtx>>> {
-        command(&state).parse_next(input)
+        command(state).parse_next(input)
     }
 }

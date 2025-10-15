@@ -1,10 +1,14 @@
+pub mod encodings;
+pub mod into_state;
+
 use facet::Facet;
 use strum::{Display, EnumIter, EnumString, FromRepr};
+use thermal_encoding::encoding::Encoding;
 
 #[repr(u8)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Display, FromRepr, Facet)]
-pub enum CharacterTable {
-    #[strum(to_string = "U.S.A.")]
+pub enum AsciiVariant {
+    #[strum(to_string = "U.S.A. (Standard ASCII)")]
     Usa = 0,
     #[strum(to_string = "France")]
     France = 1,
@@ -67,7 +71,7 @@ pub enum CharacterTable {
 
 #[repr(u8)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, EnumString, Display, FromRepr, Facet)]
-pub enum CharacterCodeTable {
+pub enum Codepage {
     #[strum(to_string = "Page 0: PC437 (USA, Standard Europe)")]
     Page0_Pc437 = 0,
     #[strum(to_string = "Page 1: Katakana")]
