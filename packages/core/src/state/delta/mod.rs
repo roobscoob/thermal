@@ -1,10 +1,11 @@
 use std::slice::Iter;
 
 use crate::{
-    state::effect::Effect,
+    state::effect::{Effect, IntoEffects},
     types::{
         character_set::{AsciiVariant, Codepage},
         font::Font,
+        justification::Justification,
     },
 };
 
@@ -14,6 +15,8 @@ pub struct Delta {
     pub apply_font: Option<Font>,
     pub apply_ascii_variant: Option<AsciiVariant>,
     pub apply_codepage: Option<Codepage>,
+    pub apply_justification: Option<Justification>,
+    pub apply_text_scale: Option<(u8, u8)>,
 }
 
 impl Delta {
@@ -21,13 +24,15 @@ impl Delta {
         Delta::default()
     }
 
-    pub fn with(mut self, effect: impl Into<Effect>) -> Delta {
+    pub fn with(mut self, effect: impl IntoEffects) -> Delta {
         self.add(effect);
         self
     }
 
-    pub fn add(&mut self, effect: impl Into<Effect>) {
-        self.effects.push(effect.into());
+    pub fn add(&mut self, effect: impl IntoEffects) {
+        for item in effect.as_effects() {
+            self.effects.push(item);
+        }
     }
 
     pub fn iter<'a>(&'a self) -> Iter<'a, Effect> {
@@ -48,7 +53,21 @@ impl Delta {
         if other.apply_codepage.is_some() {
             self.apply_codepage = other.apply_codepage;
         }
+        if other.apply_justification.is_some() {
+            self.apply_justification = other.apply_justification
+        }
+        if other.apply_text_scale.is_some() {
+            self.apply_text_scale = other.apply_text_scale
+        }
         self
+    }
+}
+
+impl std::ops::Add for Delta {
+    type Output = Self;
+
+    fn add(self, rhs: Self) -> Self::Output {
+        self.merged_with(rhs)
     }
 }
 

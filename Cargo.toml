@@ -7,5 +7,5 @@ members = [
     "packages/scratch",
     "packages/tools/escpos_build",
     "packages/emulators/tm-t88v",
-    "packages/core",
+    "packages/core", "packages/reciptify",
 ]

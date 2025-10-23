@@ -5,7 +5,7 @@ use thermal::{
     state::{
         delta::Delta,
         effect::print::{Write, WriteContents},
-        IntoState,
+        IntoState, State,
     },
     types::character_set::{AsciiVariant, Codepage},
 };
@@ -41,25 +41,44 @@ const SUPPORTED_ASCII_VARIANTS: [&AsciiVariant; 18] = [
     &AsciiVariant::Arabia,
 ];
 
-const SUPPORTED_CODEPAGES: [&Codepage; 6] = [
+const SUPPORTED_CODEPAGES: [&Codepage; 15] = [
     &Codepage::Page0_Pc437,
     &Codepage::Page1_Katakana,
     &Codepage::Page2_Pc850,
     &Codepage::Page3_Pc860,
     &Codepage::Page4_Pc863,
     &Codepage::Page5_Pc865,
+    // Doesn't support a bunch of JP tables
+    &Codepage::Page11_Pc851,
+    &Codepage::Page12_Pc853,
+    &Codepage::Page13_Pc857,
+    &Codepage::Page14_Pc737,
+    &Codepage::Page15_Iso8859_7,
+    &Codepage::Page16_Wpc1252,
+    &Codepage::Page17_Pc866,
+    &Codepage::Page18_Pc852,
+    &Codepage::Page19_Pc858,
+    // TODO: &Codepage::Page20_Thai42
+    // Doesn't support a bunch of Thai
+    // TODO: Codepages 26..=?
 ];
 
 impl TmT88v {
     pub(super) fn apply_write(&mut self, write: Write) -> Result<Vec<Output>, Error> {
-        let mut commands = vec![];
+        let mut commands = self.apply(
+            self.state.delta(write.font.into_state())
+                + self.state.delta(write.justification.into_state())
+                + self
+                    .state
+                    .delta(State::default().with_text_scale(write.scale)),
+        )?;
 
         match write.contents {
             WriteContents::Utf8(string) => {
                 let v = self.state.ascii_variant();
                 let c = self.state.codepage();
 
-                return Ok(thermal_encoding::encode_str(
+                let i = thermal_encoding::encode_str(
                     &string,
                     chain!(
                         v.iter().map(|v| v as &dyn UnicodeIntoState<
@@ -89,8 +108,9 @@ impl TmT88v {
                 .map(|rr| rr.map_err(|c| Error::Unencodable(c)).and_then(|r| r))
                 .collect::<Result<Vec<Vec<Output>>, Error>>()?
                 .into_iter()
-                .flatten()
-                .collect::<Vec<Output>>());
+                .flatten();
+
+                commands.extend(i);
             }
 
             WriteContents::AsciiLike(data, variant, codepage) => {

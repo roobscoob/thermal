@@ -13,6 +13,7 @@ winnow = "0.7.13"
 strum = { version = "0.27.2", features = ["derive"] }
 nusb = { version = "0.2.1", features = ["tokio"] }
 tokio = { version = "1.48.0", features = ["full"] }
+srec = "0.2.0"
 
 [dependencies.thermal-encoding]
 path = "../encoding"

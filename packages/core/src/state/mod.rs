@@ -6,6 +6,7 @@ use crate::{
     types::{
         character_set::{AsciiVariant, Codepage},
         font::Font,
+        justification::Justification,
     },
 };
 
@@ -14,6 +15,8 @@ pub struct State {
     pub(crate) font: Option<Font>,
     pub(crate) ascii_variant: Option<AsciiVariant>,
     pub(crate) codepage: Option<Codepage>,
+    pub(crate) justification: Option<Justification>,
+    pub(crate) text_scale: Option<(u8, u8)>,
 }
 
 pub trait IntoState {
@@ -36,6 +39,16 @@ impl State {
         self
     }
 
+    pub fn with_justification(mut self, justification: Justification) -> Self {
+        self.justification = Some(justification);
+        self
+    }
+
+    pub fn with_text_scale(mut self, scale: (u8, u8)) -> Self {
+        self.text_scale = Some(scale);
+        self
+    }
+
     pub fn codepage(&self) -> Option<Codepage> {
         self.codepage
     }
@@ -46,6 +59,14 @@ impl State {
 
     pub fn font(&self) -> Option<Font> {
         self.font
+    }
+
+    pub fn justification(&self) -> Option<Justification> {
+        self.justification
+    }
+
+    pub fn text_scale(&self) -> Option<(u8, u8)> {
+        self.text_scale
     }
 
     pub fn delta(&self, into: State) -> Delta {
@@ -67,6 +88,18 @@ impl State {
             && Some(codepage) != self.codepage
         {
             delta.apply_codepage = Some(codepage);
+        }
+
+        if let Some(justification) = into.justification
+            && Some(justification) != self.justification
+        {
+            delta.apply_justification = Some(justification)
+        }
+
+        if let Some(scale) = into.text_scale
+            && Some(scale) != self.text_scale
+        {
+            delta.apply_text_scale = Some(scale)
         }
 
         delta

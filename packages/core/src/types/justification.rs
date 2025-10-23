@@ -1,6 +1,8 @@
 use facet::Facet;
 use strum::{Display, EnumIter, FromRepr};
 
+use crate::state::{IntoState, State};
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Facet)]
 #[repr(u8)]
 pub enum Justification {
@@ -18,5 +20,11 @@ impl Justification {
 
             _ => return None,
         })
+    }
+}
+
+impl IntoState for Justification {
+    fn into_state(&self) -> crate::state::State {
+        State::default().with_justification(*self)
     }
 }
